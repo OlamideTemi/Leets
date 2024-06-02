@@ -40,7 +40,7 @@ class Solution(object):
         j = 0
         if len(firstLetter) > 0:
             for i in firstLetter:
-                for d in range(i,a)
+                for d in range(i,a):
                     if (haystack[d] == needle[j]):
                         j += 1
                     else:
