@@ -1,4 +1,5 @@
 class Solution(object):
+
     def strStr(self, haystack: str, needle: str) -> int:
         """
         :type haystack: str
@@ -20,7 +21,7 @@ class Solution(object):
                 return i-j
         return -1
 
-    def strStrEditted(self, haystack: str, needle: str) -> int:
+    def strStrv2(haystack: str, needle: str) -> int:
         """
         :type haystack: str
         :type needle: str
@@ -33,9 +34,8 @@ class Solution(object):
         needle0 = needle[0]
 
         for i in range(a):
-            if haystack[0] == needle0:
-                firstLetter.append(i)
-            
+            if haystack[i] == needle0:
+                firstLetter.append(i)  
         # i = 0
         j = 0
         if len(firstLetter) > 0:
@@ -46,8 +46,9 @@ class Solution(object):
                     else:
                         j = 0
                         break
-                    # a += 1
-                    if j == b-1:
-                        return i-j
+    
+                    if j == b: # check before adding 1
+                        return d-j+1
+                    
         return -1
         

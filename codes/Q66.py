@@ -1,4 +1,4 @@
-ss Solution(object):
+class Solution(object):
     def plusOne(self, digits):
         """
         :type digits: List[int]
