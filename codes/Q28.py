@@ -38,17 +38,19 @@ class Solution(object):
                 firstLetter.append(i)  
         # i = 0
         j = 0
-        if len(firstLetter) > 0:
-            for i in firstLetter:
-                for d in range(i,a):
-                    if (haystack[d] == needle[j]):
-                        j += 1
-                    else:
-                        j = 0
-                        break
-    
-                    if j == b: # check before adding 1
-                        return d-j+1
+        if len(firstLetter) == 0:
+            return -1
+        
+        for i in firstLetter:
+            for d in range(i,a):
+                if (haystack[d] == needle[j]):
+                    j += 1
+                else:
+                    j = 0
+                    break
+
+                if j == b: # check before adding 1
+                    return d-j+1
                     
         return -1
         
