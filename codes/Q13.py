@@ -1,7 +1,26 @@
 
 class Solution:
     def romanToInt(self, s: str) -> int:
-        
+
+        num = 0
+        former = 0
+
+        romDict = {'I': 1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000, 'o': 0}
+        s = s + 'o'
+
+        for c in s:
+            val = romDict[c]
+
+            if val > former:
+                num -= former
+            else:
+                num += former
+
+            former = val
+
+
+        return num
+            
 
 """
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
