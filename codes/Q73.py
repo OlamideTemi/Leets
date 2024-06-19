@@ -5,7 +5,27 @@ class Solution(object):
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
 
-        return matrix
+        length = matrix.shape
+        x = length[0]
+        y = length[1]
+        rows = []
+        cols = []
+
+        for i in x:
+            for j in y:
+                if matrix[i][j] == 0:
+                    rows.append(i)
+                    cols.append(j)
+        for a in rows:
+            for j in y:
+                matrix[a][j] = 0
+
+        for b in cols:
+            for i in x:
+                matrix[i][b] = 0
+
+
+        
 
 
 """
