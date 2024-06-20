@@ -9,13 +9,14 @@ class Solution(object):
         b = 0
         result = 1
 
-        for i in range(1, n):
+        for i in range(1, n+1):
             a = b
             b = result
             result = a + b
 
         return result
-  
+
+
 
 """
 You are climbing a staircase. It takes n steps to reach the top.
@@ -55,7 +56,7 @@ Thought Process
 3 - 1, 1, 1
        1, 2
        2, 1
-2
+3
 4 - 1, 1, 1, 1
        1, 1, 2
         1, 2, 1

@@ -5,23 +5,22 @@ class Solution(object):
         :rtype: None Do not return anything, modify matrix in-place instead.
         """
 
-        length = matrix.shape
-        x = length[0]
-        y = length[1]
+        x = len(matrix)
+        y = len(matrix[0])
         rows = []
         cols = []
 
-        for i in x:
-            for j in y:
+        for i in range(x):
+            for j in range(y):
                 if matrix[i][j] == 0:
                     rows.append(i)
                     cols.append(j)
         for a in rows:
-            for j in y:
+            for j in range(y):
                 matrix[a][j] = 0
 
         for b in cols:
-            for i in x:
+            for i in range(x):
                 matrix[i][b] = 0
 
 
