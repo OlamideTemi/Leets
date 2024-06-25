@@ -1,5 +1,6 @@
 class Solution(object):
-    def setZeroes(self, matrix):
+    # this (setZeros_v1) is O(m + n) space. A solution with O(1) space is still to be done later
+    def setZeroes_v1(self, matrix):
         """
         :type matrix: List[List[int]]
         :rtype: None Do not return anything, modify matrix in-place instead.
