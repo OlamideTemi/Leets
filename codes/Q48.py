@@ -7,50 +7,64 @@ class Solution(object):
 
         length = len(matrix)
 
-        for i in length:
-            for j in length:
-                temp = matrix[j][i]
-                matrix[i][j] = temp
-   
-"""
-Size 2
+        if length >= 2:
+            last_index = length - 1
 
-[[1,2],
- [3,4,]]
+            for i in range(length-1):
+                r= 0
+                c = i
 
-0,0 -> 0,1
-0,1 -> 1,1
+                first_val = matrix[r][c]
 
-1,0 -> 0,0
-1,1 -> 1,0
+                while True:
+                    next_r = c
+                    next_c = last_index -r
 
-Size 3
- 
-[[1,2,3],
- [4,5,6],
- [7,8,9]]
+                    temp_next = matrix[next_r][next_c]
 
-temp = []
+                    matrix[next_r][next_c] = first_val
 
-2,0 -> 0,0
-1,0 -> 0,1
-0,0 -> 0,2
+                    if next_r == 0 and next_c == i:
+                        break
 
-2,1 -> 1,0
-1,1 -> 1,1 
-0,1 -> 1,2
+                    first_val = temp_next
 
-2,2 -> 2,0
-1,2 -> 2,1
-0,2 -> 2,2
+                    r = next_r
+                    c = next_c
 
-Size 4
- 
-[[1,2,3, 4],
- [5,6,7,8],
- [9,10,11,12]]
+                    
+                    # m,n -> n,-m+(length-1)
 
-"""
+            if length != 2:
+                doubles = length - 2
+
+                last_r = doubles
+                last_c = doubles
+
+
+                first_val = matrix[last_r][last_c]
+
+                while True:
+                    next_r = last_c
+                    next_c = last_index - last_r
+
+                    temp_next = matrix[next_r][next_c]
+
+                    matrix[next_r][next_c] = first_val
+
+                    if next_r == doubles and next_c == doubles:
+                        break
+
+                    first_val = temp_next
+
+                    last_r = next_r
+                    last_c = next_c
+
+            
+
+
+            
+
 
 """
 # You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
@@ -77,3 +91,105 @@ Size 4
 # -1000 <= matrix[i][j] <= 1000
 
 # """
+   
+
+# Thought Process
+
+"""
+Size 2
+
+[[1,2],
+ [3,4,]]
+
+0,0 -> 0,1
+0,1 -> 1,1
+
+1,0 -> 0,0
+1,1 -> 1,0
+
+
+Size 3
+ 
+[[1,2,3],
+ [4,5,6],
+ [7,8,9]]
+
+temp = []
+
+2,0 -> 0,0 --
+1,0 -> 0,1 ---
+0,0 -> 0,2 --
+
+2,1 -> 1,0 ---
+1,1 -> 1,1 
+0,1 -> 1,2 ---
+
+2,2 -> 2,0 --
+1,2 -> 2,1 ---
+0,2 -> 2,2 --
+
+
+m,n -> n,-m+(length-1)
+
+0,0 - 0,2 
+0,2 - 2,2
+2,2 - 2,0
+2,0 - 0,0
+
+0,1 - 1,2
+1,2 - 2,1
+2,1 - 1,0
+1,0 - 0,1
+
+1,1
+
+Size 4
+ 
+[[1,2,3, 4],
+ [5,6,7,8],
+ [9,10,11,12],
+ [13,14,15,16] ]
+
+3,0 -> 0,0 -
+2,0 -> 0,1 --
+1,0 -> 0,2
+0,0 -> 0,3 -
+
+3,1 -> 1,0 ---
+2,1 -> 1,1
+1,1 -> 1,2
+0,1 -> 1,3 --
+
+3,2 -> 2,0 --
+2,2 -> 2,1
+1,2 -> 2,2
+0,2 -> 2,3 ---
+
+3,3 -> 3,0 -
+2,3 -> 3,1 ---
+1,3 -> 3,2 --
+0,3 -> 3,3 -
+
+3-m
+m,n -> n, (length-1)-m
+
+0,0 - 0,3
+0,3 - 3,3
+3,3 - 3,0
+3,0 - 0,0
+
+0,1 - 1,3
+1,3 - 3,2
+3,2 - 2,0
+2,0 - 0,1
+
+0,2 - 2,3
+2,3 - 3,1
+3,1 - 1,0
+1,0 - 0,2
+
+2,2 
+
+"""
+
+
