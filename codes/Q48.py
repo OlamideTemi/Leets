@@ -7,32 +7,23 @@ class Solution(object):
 
         length = len(matrix)
 
-        # For every n x n, 
-        # n/ 2
-        # 0...
-        # 0,0 ... 0,4
-        # 1,1 ... 1,3
-        # 2,2 
-
         if length >= 2:
 
             middle = length // 2
-            last_index = length - 2
+            last_index = length - 1
+            matrix_index = length - 1
 
             for i in range(middle):
-                   
-                r = i
-                # c = i
 
                 for j in range(i, last_index):
-                    # r= 0
+                    r= i
                     c = j
 
                     first_val = matrix[r][c]
 
                     while True:
                         next_r = c
-                        next_c = last_index -r
+                        next_c = matrix_index -r
 
                         temp_next = matrix[next_r][next_c]
 
@@ -45,39 +36,11 @@ class Solution(object):
 
                         r = next_r
                         c = next_c
+                        
                 last_index-=1
-                    
-                    # m,n -> n,-m+(length-1)
 
-            # if length != 2:
-            #     doubles = length - 2
-
-            #     last_r = doubles
-            #     last_c = doubles
-
-
-            #     first_val = matrix[last_r][last_c]
-
-            #     while True:
-            #         next_r = last_c
-            #         next_c = last_index - last_r
-
-            #         temp_next = matrix[next_r][next_c]
-
-            #         matrix[next_r][next_c] = first_val
-
-            #         if next_r == doubles and next_c == doubles:
-            #             break
-
-            #         first_val = temp_next
-
-            #         last_r = next_r
-            #         last_c = next_c
-
-            
-
-
-            
+                
+                           
 
 
 """
